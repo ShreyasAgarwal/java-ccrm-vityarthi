@@ -2,33 +2,33 @@
 
 **Shreyas Agarwal (25BAI11356)**
 
-CCRM is a Java console application for managing students, courses, and enrollments at a campus. It was built as a course project to demonstrate core object-oriented programming concepts using a simple command-line interface.
+This is my project for Programming in Java — a console app for managing students, courses, and enrollments on a campus. I built it to practice the OOP concepts we covered in class: inheritance, abstraction, polymorphism, enums, the Builder and Singleton patterns, and file handling with NIO.2.
 
 ## Project Structure
 
 ```
 java-ccrm-vityarthi-main/
 ├─ ccrm/
-│  ├─ cli/       ← application entry point and menu (MainMenu.java)
-│  ├─ config/    ← application configuration
+│  ├─ cli/       ← entry point and menu (MainMenu.java)
+│  ├─ config/    ← app configuration
 │  ├─ domain/    ← core classes (Student, Course, etc.)
 │  ├─ service/   ← business logic
-│  └─ util/      ← utility/helper classes
-├─ screenshots/  ← screenshots demonstrating functionality
+│  └─ util/      ← helper classes
+├─ screenshots/  ← screenshots showing it working
 ├─ sample.txt    ← sample file used for the backup demo
 ├─ .gitignore
 └─ README.md
 ```
 
-## Requirements
+## What you need
 
 - Java 17 or newer
-- A terminal, or an IDE such as VS Code (with the Java Extension Pack) or Eclipse
+- A terminal, or an IDE like VS Code (with the Java Extension Pack) or Eclipse
 
-## Running from the Command Line
+## Running it from the command line
 
-1. Open a terminal in the project's root folder.
-2. Compile the source files:
+1. Open a terminal in the project root.
+2. Compile the source:
 
    **Linux/macOS:**
    ```
@@ -42,25 +42,25 @@ java-ccrm-vityarthi-main/
    javac -d out (Get-ChildItem -Recurse -Filter *.java | ForEach-Object { $_.FullName })
    ```
 
-3. Run the program:
+3. Run it:
    ```
    java -cp out ccrm.cli.MainMenu
    ```
 
-### Running with assertions enabled (optional)
+### Running with assertions on (optional)
 
-Some classes use assertions for input validation, e.g.:
+A few classes use assertions to validate input, like:
 ```java
 assert credits > 0 : "Credits must be positive";
 ```
-To enable them at runtime:
+To turn these on at runtime:
 ```
 java -ea -cp out ccrm.cli.MainMenu
 ```
 
-## Running from an IDE
+## Running it from an IDE
 
-**VS Code:** Open the project folder with the Java Extension Pack installed, then run `ccrm/cli/MainMenu.java` directly.
+**VS Code:** open the project folder with the Java Extension Pack installed, then run `ccrm/cli/MainMenu.java` directly.
 
 **Eclipse:**
 1. File → New → Java Project
@@ -68,33 +68,30 @@ java -ea -cp out ccrm.cli.MainMenu
 3. Import the existing `ccrm/` package structure
 4. Run `MainMenu.java`
 
-## OOP Concepts Used
+## OOP concepts in this project
 
-| Concept | Where | Purpose |
+| Concept | Where | Why it's there |
 |---|---|---|
-| Encapsulation | `Student.java` (private fields) | Protects internal state |
-| Inheritance | `Person → Student, Instructor` | Shared behavior across subtypes |
-| Abstraction | `Person.java` (abstract class) | Common interface for related classes |
-| Polymorphism | `printProfile()` overrides | Same method signature, different behavior per subclass |
-| Immutable classes | `CourseCode.java` | Thread-safe, predictable objects |
-| Nested classes | `Course.Builder` | Groups construction logic with the class it builds |
-| Enums | `Grade.java`, `Semester.java` | Type-safe constant sets |
-| Design patterns | Singleton, Builder | Standard, well-understood object-creation patterns |
-| File I/O | `FileUtil.java` (NIO.2) | Reading/writing and backup functionality |
-| Date/Time API | Student admission dates | Modern replacement for the legacy `Date` class |
+| Encapsulation | `Student.java` (private fields) | Keeps internal state protected |
+| Inheritance | `Person → Student, Instructor` | Shared behavior across related classes |
+| Abstraction | `Person.java` (abstract class) | A common interface for subclasses to implement |
+| Polymorphism | `printProfile()` overrides | Same method call, different behavior depending on the object |
+| Immutable class | `CourseCode.java` | Predictable, thread-safe values |
+| Nested class | `Course.Builder` | Keeps construction logic next to the class it builds |
+| Enums | `Grade.java`, `Semester.java` | Type-safe fixed sets of values |
+| Design patterns | Singleton, Builder | Standard patterns for controlled object creation |
+| File I/O | `FileUtil.java` (NIO.2) | Handles the backup feature |
+| Date/Time API | Student admission dates | Cleaner than the old `Date` class |
 
 ## Screenshots
 
-The `screenshots/` folder contains images showing:
-- Java version check
-- Project structure in the IDE
-- The CLI running
-- The backup feature working
+The `screenshots/` folder has a few images showing the Java version check, the project open in an IDE, the CLI running, and the backup feature working.
 
-## Possible Future Additions
+## Where this could go next
 
-- Database connectivity (JDBC)
-- A web interface or REST API
-- Expanded reporting features
+If I keep working on this, the next steps would probably be:
+- Hooking it up to a real database (JDBC) instead of in-memory storage
+- A basic web interface or REST API on top of the existing service layer
+- More reporting features
 
-The current package structure (separating `domain`, `service`, and `util`) was chosen to make additions like these easier without needing to restructure existing code.
+The package layout (`domain`, `service`, `util` kept separate) was mainly so that adding things like this later doesn't mean restructuring what's already there.
