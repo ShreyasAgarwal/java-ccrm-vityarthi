@@ -20,10 +20,23 @@ java-ccrm-vityarthi-main/
 └─ README.md
 ```
 
+![Project structure](screenshots/project-structure.png)
+
 ## What you need
 
 - Java 17 or newer
 - A terminal, or an IDE like VS Code (with the Java Extension Pack) or Eclipse
+
+If you need to install Java, grab the JDK and check it installed correctly:
+
+![Downloading Java](screenshots/downloading%20java.png)
+
+```
+java -version
+javac -version
+```
+
+![Java version check](screenshots/java_version.png)
 
 ## Running it from the command line
 
@@ -47,6 +60,8 @@ java-ccrm-vityarthi-main/
    java -cp out ccrm.cli.MainMenu
    ```
 
+![CLI running](screenshots/cli-run.png)
+
 ### Running with assertions on (optional)
 
 A few classes use assertions to validate input, like:
@@ -68,6 +83,9 @@ java -ea -cp out ccrm.cli.MainMenu
 3. Import the existing `ccrm/` package structure
 4. Run `MainMenu.java`
 
+![Eclipse project setup](screenshots/Eclipse%20setup.png)
+![Eclipse install](screenshots/eclipse%20install.png)
+
 ## OOP concepts in this project
 
 | Concept | Where | Why it's there |
@@ -85,7 +103,10 @@ java -ea -cp out ccrm.cli.MainMenu
 
 ## Screenshots
 
-The `screenshots/` folder has a few images showing the Java version check, the project open in an IDE, the CLI running, and the backup feature working.
+A few more showing it working end to end:
+
+**Backup feature**
+![Backup working](screenshots/backup.png)
 
 ## Where this could go next
 
